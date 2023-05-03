@@ -59,11 +59,11 @@ public class C05_DropDownOptions {
         Assert.assertEquals(expectedOptionSayisi,actualOptionSayisi);
 
         /*
-                        DropDown menuye ulasmak icin select class'indan bir obje olustururuz
-                        ve locate ettigimiz dropdown webelement'inin select class'ina tanimlariz
-                        ve getOption methodunu kullanarak dropdown'u bir liste atarak dropdown menunun
-                        butun elemanlarının sayısına ulasabiliriz
-         */
+         DropDown menuye ulasmak icin select class'indan bir obje olustururuz
+         ve locate ettigimiz dropdown webelement'inin select class'ina tanimlariz
+         ve getOption methodunu kullanarak dropdown'u bir liste atarak dropdown menunun
+         butun elemanlarının sayısına ulasabiliriz
+        */
 
     }
 
