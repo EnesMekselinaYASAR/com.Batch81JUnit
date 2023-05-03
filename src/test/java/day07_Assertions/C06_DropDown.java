@@ -29,12 +29,13 @@ public class C06_DropDown {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
+
     @After
     public void tearDown(){
         driver.close();
     }
+
     @Test
     public void test01(){
-
     }
 }
