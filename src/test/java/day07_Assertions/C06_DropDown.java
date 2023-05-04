@@ -36,7 +36,7 @@ public class C06_DropDown {
 
     @After
     public void tearDown(){
-        //driver.close();
+        driver.close();
     }
 
     @Test
@@ -58,6 +58,15 @@ public class C06_DropDown {
              ) {
             System.out.println(each.getText());
         }
+
+        /*
+        List<WebElement> list = select.getOptions();
+        for (WebElement each : list
+        ) {
+            System.out.println(each.getText());
+        }
+        list.stream().forEach(t-> System.out.println(t.getText())); // LAMBDA ile
+         */
 
         int dropDownBoyut=tumOpsiyonlar.size();
         if (dropDownBoyut==4){
