@@ -75,7 +75,11 @@ public class C02_Alerts {
         @Test
         public void sendKeysAlertTest() {
 
-
+/*
+         -bir method oluşturun :sendKeysAlert
+         3.butona tıklayın ve yukarıdaki metin kutusuna isminizi yazın, OK butonuna
+          tıklayın ve result mesajında isminizin görüntülendiğini doğrulayın.
+         */
 
             driver.findElement(By.xpath("//button[@onclick='jsPrompt()'][1]")).click();
             driver.switchTo().alert().sendKeys("enes mekselina");
