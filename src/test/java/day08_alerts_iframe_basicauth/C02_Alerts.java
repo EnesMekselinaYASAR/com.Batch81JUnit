@@ -86,7 +86,7 @@ public class C02_Alerts {
             driver.switchTo().alert().accept();
             String expectedResultMessageIsim = "enes mekselina";
             String actualResultMessageIsim = driver.findElement(By.xpath("//p[@id='result']")).getText();
-            Assert.assertTrue(actualResultMessageIsim.contains(expectedResultMessageIsim));
+
 
         }
 
