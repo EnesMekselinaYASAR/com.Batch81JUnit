@@ -72,8 +72,6 @@ public class C04_Iframe {
         *driver.switchTo().parentFrame();-->1 üst seviiyedeki frame' e çıkartır.
         *driver.switchTo().defaultContent();-->En üstteki frame'e çıkmak için kullanılır.
          */
-
-
     }
         /*
         Bir web sitesinde bir video(youtube vs) varsa <iframe> tag'i içerisindeyse bu video'yu direkt locate edip çalıştırmak dinamik olmaz.
