@@ -4,10 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
@@ -46,16 +43,32 @@ public class handleWindows {
         String ilkSayfaHandleDegeri= driver.getWindowHandle();
 
         // 2-nutella icin arama yapalim
-
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Nutella"+ Keys.ENTER);
+
+        //3-ilk ürünün resmine tıklayarak farklı bir tab olarak açın
         WebElement ilkFotoElementi=driver.findElement(By.xpath("(//img[@class='s-image'])[1]"));
-        ilkFotoElementi.click();
+        driver.switchTo().newWindow(WindowType.TAB);
 
+        /*
+        Bu komutu kullandığımızda driver otomatik olarak oluşturulan new Tab a tıklar
+        yeni Tab'da görevi gerçekleştirmek için adımları baştan almamız gerekir.
+        */
 
+        driver.get("https://www.amazon.com");
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Nutella"+Keys.ENTER);
+        driver.findElement(By.xpath("(//img[@class='s-image'])[1]")).click();
 
+        //4-yeni tab da açılan ürünün title'ını yazdır.
+        WebElement urunTitleElementi=driver.findElement(By.xpath("//span[@id='productTitle']"));
+        System.out.println(urunTitleElementi.getText());
+        // Nutella & GO! Hazelnut and Cocoa Spread with Breadsticks, Snack Pack, 1.8 oz each, Bulk 24 Pack
 
+        System.out.println(driver.getCurrentUrl());
+        // https://www.amazon.com/Nutella-Chocolate-Hazelnut-Spread-Breadsticks/dp/B00V54EA74/ref=sr_1_1?keywords=Nutella&qid=1683445109&sr=8-1&th=1
 
-
+        //ilk  sayfaya geçip url i yazdıralım
+        driver.switchTo().window(ilkSayfaHandleDegeri);
+        System.out.println(driver.getCurrentUrl());// https://www.amazon.com/s?k=Nutella&ref=nb_sb_noss
 
 
 
