@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
+import java.util.Set;
 
 public class C03_windowHandles {
     /*
@@ -36,7 +37,7 @@ public class C03_windowHandles {
 
     @After
     public void tearDown() {
-        //driver.quit();
+        driver.quit();
     }
 
     @Test
@@ -69,7 +70,7 @@ public class C03_windowHandles {
 
         /*
         switchTo().newWndow() demeden link tıklayarak yeni tab veya window oluştuğunda biz driver a
-        yeni sayfaya geç demedikçe eski sayfada kalır ve yeni sayf ile ilgili hiç bir işlem yapmaz.
+        yeni sayfaya geç demedikçe eski sayfada kalır ve yeni sayfa ile ilgili hiç bir işlem yapamaz.
         Yeni sayfada  driver'ı çalıştırmak isterseniz önce driverı yeni sayfaya yollamalısınız.
         Yeni sayfaya geçebilmek için öncelikle ikinciSayfaWindowHandleDeğeri'ni bulmamız gerekir.
         Bunun için driver.getWindowHandles() methodunu kullanarak açık olan tüm sayfaların window handle değerlerini
@@ -92,7 +93,7 @@ public class C03_windowHandles {
 
         driver.switchTo().window(ikinciSayfaWindowHandleDeğeri);
 
-        //5.Açılan yeni pencerinin sayfa başlığının "New Windoww" olduğunu doğrulayın.
+        //5.Açılan yeni pencerinin sayfa başlığının "New Window" olduğunu doğrulayın.
         String expectedIkinciTitle = "New Window";
         String actualIkinciTitle = driver.getTitle();
         Assert.assertEquals(expectedIkinciTitle, actualIkinciTitle);
@@ -108,9 +109,6 @@ public class C03_windowHandles {
         expectedTitle = "The Internet";
         actualTitle = driver.getTitle();
         Assert.assertEquals(expectedTitle, actualTitle);
-
-
     }
+}
 
-}
-}
