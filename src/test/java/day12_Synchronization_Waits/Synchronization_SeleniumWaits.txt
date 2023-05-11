@@ -16,4 +16,4 @@ Waits in Selenium:
  --->FluentWait--bekliyor ama belli periyotlarla 3 sn de bir kontrol et gibi
 
 Java Tabanlı Wait
-Thread.sleep():Javadan gelir ve kodlaı yazılan süre kadar bekletir. Süre dolduktan sonra alt satırdan işleme devam eder.
+Thread.sleep():Javadan gelir ve kodları yazılan süre kadar bekletir. Süre dolduktan sonra alt satırdan işleme devam eder.
