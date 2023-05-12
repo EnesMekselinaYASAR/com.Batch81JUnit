@@ -2,6 +2,10 @@ package day13_CookiesWebTables;
 
 import Utilities.TestBase;
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class C02_WebTables extends TestBase {
      /*
@@ -16,5 +20,23 @@ public class C02_WebTables extends TestBase {
      Table body’sinde bulunan satirlari(rows) konsolda yazdırın.
      4.satirdaki(row) elementleri konsolda yazdırın.
      */
+
+    @Test
+    public void webTable(){
+        girisYap();
+    }
+
+    public void girisYap() {
+        driver.get("https://www.hotelmycamp.com");
+        driver.findElement(By.linkText("Log in")).click();
+        Actions actions=new Actions(driver);
+        WebElement username=driver.findElement(By.id("UserName"));
+        actions.click(username).
+                sendKeys("manager").
+                sendKeys(Keys.TAB).
+                sendKeys("Manager1!").
+                sendKeys(Keys.ENTER).
+                perform();
+    }
 
 }

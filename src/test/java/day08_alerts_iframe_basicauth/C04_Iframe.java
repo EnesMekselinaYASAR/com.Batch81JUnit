@@ -69,7 +69,7 @@ public class C04_Iframe {
 
          /*
         iframe den çıkmak için 2 komut vardır.
-        *driver.switchTo().parentFrame();-->1 üst seviiyedeki frame' e çıkartır.
+        *driver.switchTo().parentFrame();-->1 üst seviyedeki frame' e çıkartır.
         *driver.switchTo().defaultContent();-->En üstteki frame'e çıkmak için kullanılır.
          */
     }
