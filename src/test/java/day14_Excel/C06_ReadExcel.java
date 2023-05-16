@@ -1,2 +1,52 @@
-package day14_Excel;public class C06_ReadExcel {
+package day14_Excel;
+
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+public class C06_ReadExcel {
+     /*
+    Excel dosyasındaki tüm verileri clasımıza alıp bir Java objesine store edelim
+    böylece her seferinde excel'e ulaşıp satır,sutun vs... uğraşmayalım
+    Bunun için map yapıcaz : key ve valuelere ihtiyacımız var
+
+    Database yapısında olan exceli koyabileceğimiz en uygun Java objesi Map
+     */
+
+    @Test
+    public void readExcelTest() throws IOException {
+
+        Map<String,String> ulkelerMap=new HashMap<>();
+
+        String dosyaYolu="src/resources/ulkeler.xlsx";
+        FileInputStream fis=new FileInputStream(dosyaYolu);
+        Workbook workbook= WorkbookFactory.create(fis);
+        int sonSatirIndex=workbook.getSheet("Sayfa1").getLastRowNum();
+
+        for (int i = 0; i <= sonSatirIndex; i++) {
+            // key i. satirdaki 0 indexindeki data olacak
+            String key=workbook.getSheet("Sayfa1").getRow(i).getCell(0).toString();
+
+            // value ise i.satirdaki 1,2 ve 3. indexdeki datalarin birlesimi olacak
+            String value=workbook.getSheet("Sayfa1").getRow(i).getCell(1).toString()
+                    +", "
+                    +workbook.getSheet("Sayfa1").getRow(i).getCell(2).toString()
+                    +", "
+                    +workbook.getSheet("Sayfa1").getRow(i).getCell(3).toString();
+            ulkelerMap.put(key,value);
+            System.out.println(key+" , "+value);
+        }
+        System.out.println(ulkelerMap);
+
+        // Listede Ghana oldugunu test edelim
+
+        Assert.assertTrue(ulkelerMap.keySet().contains("Ghana"));
+    }
 }
